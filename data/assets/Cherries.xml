@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<map>
+    <bouncer x="10" y="14" />
+
+    <!--  Cherries -->
+
+    <!-- Cherry top left corner -->
+    <color x="3" y="0" value="GREEN" />
+    <color x="2" y="1" value="GREEN" />
+
+    <color x="1" y="2" value="RED" />
+    <color x="2" y="2" value="RED" />
+    <color x="3" y="2" value="RED" />
+    <color x="1" y="3" value="RED" />
+    <color x="2" y="3" value="RED" />
+    <color x="3" y="3" value="RED" />
+    <color x="1" y="4" value="RED" />
+    <color x="2" y="4" value="RED" />
+    <color x="3" y="4" value="RED" />
+
+
+    <!-- Cherry top right corner -->
+    <color x="12" y="1" value="GREEN" />
+    <color x="11" y="2" value="GREEN" />
+
+    <color x="10" y="3" value="RED" />
+    <color x="11" y="3" value="RED" />
+    <color x="12" y="3" value="RED" />
+    <color x="10" y="4" value="RED" />
+    <color x="11" y="4" value="RED" />
+    <color x="12" y="4" value="RED" />
+    <color x="10" y="5" value="RED" />
+    <color x="11" y="5" value="RED" />
+    <color x="12" y="5" value="RED" />
+
+
+    <!-- Cherry lower center -->
+    <color x="7" y="7" value="GREEN" />
+    <color x="6" y="8" value="GREEN" />
+
+    <color x="5" y="9" value="RED" />
+    <color x="6" y="9" value="RED" />
+    <color x="7" y="9" value="RED" />
+    <color x="5" y="10" value="RED" />
+    <color x="6" y="10" value="RED" />
+    <color x="7" y="10" value="RED" />
+    <color x="5" y="11" value="RED" />
+    <color x="6" y="11" value="RED" />
+    <color x="7" y="11" value="RED" />
+
+</map>
