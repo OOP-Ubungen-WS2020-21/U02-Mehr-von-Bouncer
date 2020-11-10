@@ -6,8 +6,8 @@ import de.ur.mi.bouncer.world.fields.FieldColor;
 public class DieMauer extends BouncerApp {
 
     /**
-     * Bouncer repariert die zerbrochenen Ziegel in der Wand mit den mitgelieferten
-     * Ziegelhaufen  auf der linken Seite der Welt
+     * Bouncer repairs the broken tiles in the wall with the included pile of bricks
+     * in the left side of the world.
      */
     @Override
     public void bounce() {
@@ -17,9 +17,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer bewegt sich zur Wand
-     * Vorbedingung: Bouncer steht am westlichen, unteren Ende der Karte, nach Osten ausgerichtet.
-     * Nachbedingung: Bouncer steht beim ersten Ziegel am Fuß der Mauer, nach Osten ausgerichtet.
+     * Bouncer moves to the wall.
+     * Pre-condition: Bouncer is at the western bottom edge of the map, Bouncer faces east.
+     * Post-condition: Bouncer is at the first tile on the bottom of the wall, Bouncer faces east.
      */
     private void moveToWall() {
         while (!bouncer.isOnFieldWithColor(FieldColor.GREEN)) {
@@ -28,7 +28,7 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer beginnt, nach kaputten Ziegeln zu suchen.
+     * Bouncer starts with his search for broken tiles.
      */
     private void checkWall() {
         while (bouncer.isOnFieldWithColor(FieldColor.GREEN)) {
@@ -37,7 +37,7 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer überprüft jeden Block in einer Reihe und geht dann zur nächsten Reihe über.
+     * Bouncer checks each block in every row and switch than to the next row.
      */
     private void repairWall() {
         while (bouncer.canMoveForward()) {
@@ -47,7 +47,7 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer bewegt sich von einer Ziegelreihe zur nächsten.
+     * Bouncer moves from one tile row to the next.
      */
     private void moveToNextLane() {
         turnAround();
@@ -61,8 +61,8 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer prüft, ob der Block, auf dem er steht, kaputt ist und repariert ihn, wenn
-     * nötig, sonst macht er weiter.
+     * Bouncer checks if the current block is broken.
+     * If that is the case he repairs it, if not he continues moving.
      */
     private void checkBlock() {
         if (bouncer.isOnFieldWithColor(FieldColor.RED)) {
@@ -73,7 +73,7 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer repariert einen Block, indem er einen neuen holt und den alten ersetzt.
+     * Bouncer repairs a block, by fetching a new one and replacing the old .
      */
     private void repairBlock() {
         getNewBlock();
@@ -82,7 +82,7 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer holt einen neuen Block vom Stapel.
+     * Bouncer fetch a new block from the pile.
      */
     private void getNewBlock() {
         returnToPile();
@@ -90,9 +90,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer geht zum Blockhaufen und markiert seinen Weg mit einer blauen Spur.
-     * Vorbedingung: Bouncer steht auf dem kaputten Block
-     * Nachbedingung: Bouncer steht am unteren Ende des Stapels von Ersatzblöcken, nach Norden ausgerichtet.
+     * Bouncer moves to the pile of blocks and marks his way blue.
+     * Pre-condition: Bouncer is on a broken block.
+     * Post-condition: Bouncer is at the bottom edge of the pile of replacement blocks, Bouncer faces north.
      */
     private void returnToPile() {
         turnAround();
@@ -113,9 +113,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer nimmt den Ziegel von der Oberseite des Stapels
-     * Vorbedingung: Bouncer steht am unteren Ende des Stapels von Ersatzblöcken, nach Norden ausgerichtet.
-     * Nachbedingung: Bouncer steht auf dem Stapel, nach Süden ausgerichtet.
+     * Bouncer fetch the tile of the top of the pile.
+     * Pre-condition: Bouncer is at the bottom edge of the pile of replacement blocks, Bouncer faces north.
+     * Post-condition: Bouncer is on the pile, Bouncer faces south.
      */
     private void getNextBrick() {
         while (bouncer.isOnFieldWithColor(FieldColor.GREEN)) {
@@ -127,9 +127,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bouncer kehrt zu dem kaputten Teil in der Wand zurück.
-     * Vorbedingung: Bouncer steht auf dem Ersatzteile-Stapel, nach Süden ausgerichtet.
-     * Nachbedingung: Bouncer steht auf dem kaputten Stein in der Wand, von dem er kam.
+     * Bouncer goes back to the broken part of the wall
+     * Pre-condition: Bouncer is on the pile of replacement blocks, Bouncer faces south.
+     * Post-condition: Bouncer is on the broken tile in the wall, von which he started.
      */
     private void returnToWall() {
         bouncer.turnLeft();
@@ -153,7 +153,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * dreht Bouncer nach rechts.
+     * Bouncer turns right
+     * Pre-condition: Bouncer faces a ceratin direction (e.g. north)
+     * Post-condition: Bouncer faces the direction to the right of the previous direction (e.g. east)
      */
     private void turnRight() {
         bouncer.turnLeft();
@@ -162,7 +164,9 @@ public class DieMauer extends BouncerApp {
     }
 
     /**
-     * Bringt Bouncer dazu, sich umzudrehen.
+     * Bouncer does a 180 by rotating 90 degrees, moving, and rotating 90 degrees again
+     * Pre-condition: Bouncer cannot vertically move further and faces the direction Bouncer moved in previously.
+     * Post-condition: Bouncer stands a tile to the left of the Bouncer's previous location and faces the opposite direction
      */
     private void turnAround() {
         bouncer.turnLeft();
